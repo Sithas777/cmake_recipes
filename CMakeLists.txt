@@ -1,6 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
-project(playground)
+cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
+project(recipe-01 LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 20)
-
-add_executable(playground main.cpp)
+add_executable(hello-world hello-world.cpp)
