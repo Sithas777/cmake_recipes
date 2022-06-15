@@ -1,4 +1,4 @@
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
-project(recipe-01 LANGUAGES CXX)
+project(recipe-02 LANGUAGES CXX)
 
-add_executable(hello-world hello-world.cpp)
+add_executable(switching-generators switching-generators.cpp)
