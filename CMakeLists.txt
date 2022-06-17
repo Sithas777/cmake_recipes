@@ -1,8 +1,15 @@
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
-project(recipe-02 LANGUAGES CXX)
+project(cmake-recipes LANGUAGES CXX)
 
-add_library(fizz-buzz STATIC FizzBuzz.hpp FizzBuzz.cpp)
+set(USE_LIBRARY ON)
+message(STATUS "Compile sources into a library? ${USE_LIBRARY}")
+set(BUILD_SHARED_LIBS OFF)
+list(APPEND _sources FizzBuzz.hpp FizzBuzz.cpp)
 
-add_executable(link-library link-library.cpp)
-
-target_link_libraries(link-library fizz-buzz)
+if (USE_LIBRARY)
+    add_library(fizzbuzz ${_sources})
+    add_executable(main main.cpp)
+    target_link_libraries(main fizzbuzz)
+else()
+    add_executable(main main.cpp ${_sources})
+endif()
