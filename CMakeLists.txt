@@ -1,8 +1,7 @@
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 project(cmake-recipes LANGUAGES CXX)
 
-set(USE_LIBRARY ON)
-message(STATUS "Compile sources into a library? ${USE_LIBRARY}")
+option(USE_LIBRARY "Do you want compile source into a library?" OFF)
 set(BUILD_SHARED_LIBS OFF)
 list(APPEND _sources FizzBuzz.hpp FizzBuzz.cpp)
 
