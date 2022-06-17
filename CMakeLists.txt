@@ -3,6 +3,7 @@ project(cmake-recipes LANGUAGES CXX)
 
 option(USE_LIBRARY "Do you want compile source into a library?" OFF)
 set(BUILD_SHARED_LIBS OFF)
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 list(APPEND _sources FizzBuzz.hpp FizzBuzz.cpp)
 
 if (NOT CMAKE_BUILD_TYPE)
@@ -28,3 +29,10 @@ else()
 endif()
 
 target_compile_options(main PRIVATE "-fno-exceptions" "-fno-rtti")
+
+set_target_properties(main
+        PROPERTIES
+        CXX_STANDARD 17
+        CXX_EXTENSIONS OFF
+        CXX_STANDARD_REQUIRED ON
+        )
