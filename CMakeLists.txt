@@ -1,12 +1,17 @@
-cmake_minimum_required(VERSION 3.0)
-project(playground)
+cmake_minimum_required(VERSION 3.9 FATAL_ERROR)
 
-set(CMAKE_CXX_STANDARD 20)
+# project name and language
+project(recipe-06 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_EXTENSIONS OFF)
-set(CMAKE_CXX_STANDARD_REQUIRED  ON)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(OpenMP REQUIRED)
+find_package(MPI REQUIRED)
 
-add_executable(playground main.cpp)
+add_executable(hello-mpi main.cpp)
 
-target_link_libraries(playground PUBLIC OpenMP::OpenMP_CXX)
+target_link_libraries(hello-mpi
+        PUBLIC
+        MPI::MPI_CXX
+        )
