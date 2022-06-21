@@ -5,8 +5,8 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED  ON)
 
-find_package(OpenMP REQUIRED)
+find_package(Eigen3 3.4.0 REQUIRED CONFIG PATHS "c:/Program Files (x86)/Eigen3")
 
 add_executable(playground main.cpp)
 
-target_link_libraries(playground PUBLIC OpenMP::OpenMP_CXX)
+target_link_libraries(playground PUBLIC Eigen3::Eigen)
